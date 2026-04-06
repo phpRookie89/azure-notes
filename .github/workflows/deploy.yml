@@ -2,20 +2,18 @@ name: Deploy Azure Notes
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:   # allows manual trigger from GitHub UI
 
 env:
   RESOURCE_GROUP: rg-azure-notes
-  FUNCTION_APP_NAME: func-notes-azn001   # must match suffix in main.bicep
+  FUNCTION_APP_NAME: func-notes-azn001
 
 jobs:
-  # ── Job 1: Deploy Infrastructure ────────────────────────
+  # ── Job 1: Deploy Infrastructure (Bicep) ────────────────────────
   infra:
     name: Deploy Infrastructure (Bicep)
     runs-on: ubuntu-latest
-    outputs:
-      functionAppUrl: ${{ steps.deploy.outputs.functionAppUrl }}
 
     steps:
       - uses: actions/checkout@v4
@@ -24,17 +22,15 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          # AZURE_CREDENTIALS secret: run `az ad sp create-for-rbac --sdk-auth` and paste output
 
       - name: Deploy Bicep
-        id: deploy
         uses: azure/arm-deploy@v2
         with:
           resourceGroupName: ${{ env.RESOURCE_GROUP }}
           template: ./infra/main.bicep
           parameters: environment=dev suffix=azn001
 
-  # ── Job 2: Build & Deploy API ────────────────────────────
+  # ── Job 2: Build & Deploy Azure Functions ────────────────────────
   api:
     name: Build & Deploy Azure Functions
     runs-on: ubuntu-latest
@@ -67,21 +63,3 @@ jobs:
           app-name: ${{ env.FUNCTION_APP_NAME }}
           package: api
           respect-funcignore: true
-
-  # ── Job 3: Deploy Frontend ───────────────────────────────
-  frontend:
-    name: Deploy Frontend (Static Web App)
-    runs-on: ubuntu-latest
-    needs: api
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy to Azure Static Web Apps
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: upload
-          app_location: /frontend
-          skip_api_build: true
