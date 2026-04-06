@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\s_gua\\\\Documents\\\\azure-dev\")",
+      "Bash(az --version)",
+      "Bash(az version:*)",
+      "Bash(func --version)",
+      "Bash(cmd.exe /c \"az version\")",
+      "Bash(\"/c/Program Files/Microsoft SDKs/Azure/CLI2/wbin/az\" version)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/Microsoft SDKs/Azure/CLI2/wbin\")",
+      "Bash(az login:*)",
+      "Bash(az group:*)",
+      "Bash(az deployment:*)",
+      "Bash(az provider:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(func azure:*)",
+      "Bash(az storage:*)",
+      "Bash(curl -s -X POST https://func-notes-azn001.azurewebsites.net/api/notes -H 'Content-Type: application/json' -d '{\"userId\":\"user-001\",\"title\":\"My first Azure note\",\"body\":\"Hello from Azure Functions + Cosmos DB!\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(az rest:*)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
+      "Bash(gh auth:*)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI:/c/Program Files/Microsoft SDKs/Azure/CLI2/wbin\")"
+    ]
+  }
+}

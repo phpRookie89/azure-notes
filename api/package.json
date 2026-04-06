@@ -1,0 +1,22 @@
+{
+  "name": "azure-notes-api",
+  "version": "1.0.0",
+  "description": "Azure Notes - serverless API using Azure Functions v4",
+  "main": "dist/src/functions/*.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "npm run build && func start",
+    "prestart": "npm run build"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.1.1",
+    "@azure/identity": "^4.4.1",
+    "@azure/keyvault-secrets": "^4.9.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^4.5.1",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}

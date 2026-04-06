@@ -1,0 +1,90 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  background: #0078d4; /* Azure blue */
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+header h1 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+
+.user-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.user-bar input {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+button {
+  background: #005a9e;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover { background: #004578; }
+
+.new-note, .notes-list {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #0078d4; }
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+textarea { resize: vertical; font-family: inherit; }
+
+#saveBtn { background: #107c10; } /* green for save */
+#saveBtn:hover { background: #0a5e0a; }
+
+.note-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.note-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+.note-card p { color: #4b5563; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.note-meta { font-size: 0.75rem; color: #9ca3af; }
+
+.note-actions { margin-top: 0.5rem; display: flex; gap: 0.5rem; }
+.note-actions button { font-size: 0.8rem; padding: 0.25rem 0.6rem; }
+.delete-btn { background: #d32f2f; }
+.delete-btn:hover { background: #b71c1c; }

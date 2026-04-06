@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Azure Notes</h1>
+      <div class="user-bar">
+        <label for="userId">User ID:</label>
+        <input id="userId" type="text" placeholder="e.g. user-001" value="user-001" />
+        <button id="loadBtn">Load Notes</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- New note form -->
+      <section class="new-note">
+        <h2>New Note</h2>
+        <input id="noteTitle" type="text" placeholder="Title" />
+        <textarea id="noteBody" rows="4" placeholder="Write your note here..."></textarea>
+        <button id="saveBtn">Save Note</button>
+      </section>
+
+      <!-- Notes list -->
+      <section class="notes-list">
+        <h2>My Notes</h2>
+        <div id="notes"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
